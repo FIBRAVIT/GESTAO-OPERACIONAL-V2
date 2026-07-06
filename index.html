@@ -241,6 +241,7 @@ footer{background:linear-gradient(135deg,#0D1B2A,#1F4E79);margin-top:auto;paddin
 <footer><div class="fi"><div style="display:flex;align-items:center;gap:8px"><span style="font-size:14px">&#127959;&#65039;</span><div><div style="color:#fff;font-weight:700;font-size:10px">GESTAO OPERACIONAL - SEATRIUM</div><div style="font-size:9px;opacity:.6">GRUPO FIBRAVIT</div></div></div><div style="text-align:center"><div style="color:#C9A84C;font-weight:700;font-size:9px;letter-spacing:.8px;text-transform:uppercase">Desenvolvido por</div><div style="color:#fff;font-weight:800;font-size:12px;letter-spacing:1.5px">EVEREST CONSULTORIA</div><div style="color:rgba(255,255,255,.6);font-size:9px;font-style:italic">em Gestao Empresarial</div></div><div style="text-align:right;font-size:9px;opacity:.5">&#169; 2026 Todos os direitos reservados</div></div></footer>
 <script>
 
+
 // ═══════════════════════════════════════════════════════════════
 // GESTAO OPERACIONAL SEATRIUM v2 - JavaScript
 // ═══════════════════════════════════════════════════════════════
@@ -805,8 +806,7 @@ function ldComp() {
 function expCSV() {
   if (!dExp.length) { alert('Sem dados.'); return; }
   var c = 'Colaborador,Cargo,Servico,Meta,Realizado,Eficiencia\n';
-  dExp.forEach(function(r) { var ef = r.meta > 0 ? Math.round(r.realizado / r.meta * 100) : 100; c += '"' + (r.colaborador || '') + '","' + (r.cargo || '') + '","' + (r.servico || '') + '",' + r.meta + ',' + r.realizado + ',' + ef + '%
-'; });
+  dExp.forEach(function(r) { var ef = r.meta > 0 ? Math.round(r.realizado / r.meta * 100) : 100; c += '"' + (r.colaborador || '') + '","' + (r.cargo || '') + '","' + (r.servico || '') + '",' + r.meta + ',' + r.realizado + ',' + ef + '%\n'; });
   var b = new Blob([c], { type: 'text/csv;charset=utf-8;' });
   var u = URL.createObjectURL(b);
   var a = document.createElement('a'); a.href = u; a.download = 'meta_realizado.csv'; a.click(); URL.revokeObjectURL(u);
@@ -1156,6 +1156,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Carregar colaboradores ao iniciar
   carregarColaboradores();
 });
+
 
 </script>
 </body>
