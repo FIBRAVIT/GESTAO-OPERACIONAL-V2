@@ -245,7 +245,7 @@ footer{background:linear-gradient(135deg,#0D1B2A,#1F4E79);margin-top:auto;paddin
 // GESTAO OPERACIONAL SEATRIUM v2 - JavaScript
 // ═══════════════════════════════════════════════════════════════
 
-var AU = 'https://script.google.com/macros/s/AKfycbxE-l1FGwTO8IeIpd-3iS0eZUm73eHbyqFxixtvbevJoslYrs0bFcHuKEVcW2_yxBgf/exec';
+var AU = 'LINK_DO_NOVO_APPS_SCRIPT';
 var colaboradoresCache = [];
 
 // ── API ──────────────────────────────────────────────────────
@@ -804,8 +804,7 @@ function ldComp() {
 
 function expCSV() {
   if (!dExp.length) { alert('Sem dados.'); return; }
-  var c = 'Colaborador,Cargo,Servico,Meta,Realizado,Eficiencia
-';
+  var c = 'Colaborador,Cargo,Servico,Meta,Realizado,Eficiencia\n';
   dExp.forEach(function(r) { var ef = r.meta > 0 ? Math.round(r.realizado / r.meta * 100) : 100; c += '"' + (r.colaborador || '') + '","' + (r.cargo || '') + '","' + (r.servico || '') + '",' + r.meta + ',' + r.realizado + ',' + ef + '%
 '; });
   var b = new Blob([c], { type: 'text/csv;charset=utf-8;' });
@@ -1154,7 +1153,8 @@ document.addEventListener('DOMContentLoaded', function() {
   ['rData','hIni','hFim','mData','aData','lpDataPrev','lrDataReal','mpDataPrev','mrDataReal','blData','blHistIni','blHistFim'].forEach(function(id) {
     var el = document.getElementById(id); if (el) el.value = hoje;
   });
-  // Colaboradores sao carregados quando o usuario acessa a pagina
+  // Carregar colaboradores ao iniciar
+  carregarColaboradores();
 });
 
 </script>
